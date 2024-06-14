@@ -3,7 +3,9 @@ function knightMoves(start, end) {
   const startingPoint = new PotentialMove(start, noOfMoves, []);
   const queue = [startingPoint];
   const explored = [start];
-  if (start[0] === end[0] && start[1] === end[1]) {
+  if (start[0] > 7 || start[0] < 0 || end[0] > 7 || end[0] < 0) {
+    return "Please input valid chess coordinates";
+  } else if (start[0] === end[0] && start[1] === end[1]) {
     return `You made it in ${noOfMoves}! Here's your path:\n [${start}]\n [${end}]`;
   } else {
     move(queue, end, explored);
